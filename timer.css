@@ -1,171 +1,90 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 * {
   box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-html,
-body {
-  font-family: 'Roboto', sans-serif;
+  height: auto;
 }
 
 h1 {
   font-size: 4rem;
 }
+
 h2 {
-  font-size: 3.2rem;
-  padding-bottom: 10px;
+  font-size: 2rem;
 }
-h4 {
-  font-size: 2.5rem;
-  padding-bottom: 10px;
-}
+
 p {
-  line-height: 1.5;
-  font-size: 1.6rem;
-  padding-bottom: 10px;
+  font-size: 2rem;
 }
 
-header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
 }
 
-header h1 {
-    margin: 0 auto;
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 100vh;
+
+  /* For text formatting. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
 }
 
-.container {
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " adsfa";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+/* The styling for the static div. */
+.static {
+  background-image: radial-gradient(grey, black, grey);
+  /* margin: 7.5% auto; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  /* width: 100%; */
+}
+/* .bg1 {
+    background-image: url('https://placekitten.com/g/900/700');
+} */
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after {
+  background-image: url('https://placekitten.com/g/900/700');
+}
+
+.bg2::after {
+  background-image: url('https://placekitten.com/g/800/600');
+}
+
+
+
+/* .container {
   max-width: 800px;
   width: 100%;
   margin: 7.5% auto;
@@ -178,19 +97,42 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+} */
+.time-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  height: 300px;
+  /* padding-top: 130px; */
+  width: 30%;
 }
 
 .side {
-    margin-top: 10%;
+    margin-bottom: 7.5%;
+    display: flex;
+    flex-direction: column;
+    border:1px solid white;
+    height: 400px;
+    width: 20%;
 }
 
 .buttons {
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.start, .pause, .reset {
+  font-size: 1.2rem;
+  width: auto;
+  height: auto;
+  /* background-image: radial-gradiant(white, gray, black) */
+}
+
 button {
   cursor: pointer;
+  width: 25%;
+  height: 3%;
 }
