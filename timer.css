@@ -63,17 +63,11 @@ p {
 /* The styling for the static div. */
 .static {
   background-image: radial-gradient(grey, black, grey);
-  /* margin: 7.5% auto; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
-  /* width: 100%; */
 }
-/* .bg1 {
-    background-image: url('https://placekitten.com/g/900/700');
-} */
-/* Sets the actual background images to adorable kitties. This part is crucial. */
+
 .bg1::after {
   background-image: url('https://placekitten.com/g/900/700');
 }
@@ -82,29 +76,12 @@ p {
   background-image: url('https://placekitten.com/g/800/600');
 }
 
-
-
-/* .container {
-  max-width: 800px;
-  width: 100%;
-  margin: 7.5% auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
 .time-left {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid white;
   height: 300px;
-  /* padding-top: 130px; */
   width: 30%;
 }
 
@@ -128,11 +105,11 @@ p {
   font-size: 1.2rem;
   width: auto;
   height: auto;
-  /* background-image: radial-gradiant(white, gray, black) */
 }
 
 button {
   cursor: pointer;
   width: 25%;
-  height: 3%;
+  height: 10%;
+  font-size: 2rem;
 }
